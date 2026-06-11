@@ -22,10 +22,10 @@ export default function Footer() {
               Certifícate y transforma tu pasión en una profesión.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose-gold/30 transition-colors">
+              <a href="https://www.instagram.com/miradasvip_oficial/" target="_blank" rel="noreferrer" title="Instagram" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose-gold/30 transition-colors">
                 <Globe size={16} />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose-gold/30 transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61550919825948" target="_blank" rel="noreferrer" title="Facebook" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose-gold/30 transition-colors">
                 <MessageCircle size={16} />
               </a>
               <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose-gold/30 transition-colors">
