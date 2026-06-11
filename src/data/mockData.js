@@ -267,7 +267,7 @@ export const mockAppointments = [
     procedureType: 'Extensiones de Pestañas Clásicas',
     date: '2026-06-12',
     time: '10:00 AM',
-    status: 'scheduled'
+    status: 'pending'
   },
   {
     id: 'appt-2',
@@ -275,9 +275,9 @@ export const mockAppointments = [
     phone: '315 999 8888',
     identification: '1144555666',
     procedureType: 'Micropigmentación de Cejas',
-    date: '2026-06-11',
+    date: new Date().toISOString().split('T')[0], // Today's date for 'confirmed (today)'
     time: '02:00 PM',
-    status: 'in_progress'
+    status: 'confirmed'
   },
   {
     id: 'appt-3',

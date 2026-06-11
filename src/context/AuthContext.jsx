@@ -38,6 +38,23 @@ export function AuthProvider({ children }) {
       return { success: true, user: studentUser };
     }
 
+    // Mock certified stylist login
+    if (email === 'estilista@test.com' && password === '123456') {
+      const stylistUser = {
+        id: '2',
+        firstName: 'Daniela',
+        lastName: 'Ospina',
+        email: 'estilista@test.com',
+        role: 'student',
+        isCertified: true,
+        slug: 'daniela-ospina',
+        avatar: null
+      };
+      setUser(stylistUser);
+      setIsAuthenticated(true);
+      return { success: true, user: stylistUser };
+    }
+
     return { success: false, message: 'Credenciales incorrectas' };
   }, []);
 

@@ -27,6 +27,8 @@ export default function LoginPage() {
     if (result.success) {
       if (result.user.role === 'admin') {
         navigate('/admin');
+      } else if (result.user.isCertified) {
+        navigate('/estilista/dashboard');
       } else {
         navigate('/alumna/progreso');
       }
@@ -73,6 +75,7 @@ export default function LoginPage() {
             <div className="space-y-1 text-xs text-noir/60">
               <p><strong>Admin:</strong> admin@miradasvip.com / admin123</p>
               <p><strong>Alumna:</strong> alumna@test.com / 123456</p>
+              <p><strong>Estilista:</strong> estilista@test.com / 123456</p>
             </div>
           </div>
 

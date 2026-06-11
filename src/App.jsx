@@ -6,6 +6,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import AdminLayout from './components/layout/AdminLayout';
 import StudentLayout from './components/layout/StudentLayout';
+import StylistLayout from './components/layout/StylistLayout';
 
 // Public Pages
 import LandingPage from './pages/public/LandingPage';
@@ -30,6 +31,12 @@ import AdminEducationalContentPage from './pages/admin/AdminEducationalContentPa
 import StudentProgressPage from './pages/student/StudentProgressPage';
 import StudentCoursesPage from './pages/student/StudentCoursesPage';
 import StudentCertificatesPage from './pages/student/StudentCertificatesPage';
+
+// Stylist Pages
+import StylistDashboardPage from './pages/stylist/StylistDashboardPage';
+import StylistAgendaPage from './pages/stylist/StylistAgendaPage';
+import StylistProfileConfigPage from './pages/stylist/StylistProfileConfigPage';
+import StylistPublicProfilePage from './pages/public/StylistPublicProfilePage';
 
 // Route protection components
 function ProtectedRoute({ children, requiredRole }) {
@@ -124,7 +131,23 @@ function App() {
           </Route>
 
           {/* Stylist public profile */}
-          <Route path="/profesional/:slug" element={<PublicLayout><StudentPlaceholder title="Perfil Profesional" /></PublicLayout>} />
+          <Route path="/profesional/:slug" element={<PublicLayout><StylistPublicProfilePage /></PublicLayout>} />
+
+          {/* Stylist routes */}
+          <Route
+            path="/estilista"
+            element={
+              <ProtectedRoute requiredRole="student">
+                {/* Real check would ensure isCertified is true, here we let student role in for testing */}
+                <StylistLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<StylistDashboardPage />} />
+            <Route path="agenda" element={<StylistAgendaPage />} />
+            <Route path="perfil" element={<StylistProfileConfigPage />} />
+          </Route>
 
           {/* Admin routes */}
           <Route
